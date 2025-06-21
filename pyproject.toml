@@ -1,0 +1,40 @@
+[tool.coverage.run]
+parallel = false
+concurrency = ["thread"]
+source = ["whisper_transcriber"]
+omit = [
+    "*/tests/*",
+    "*/venv/*",
+    "*/whisperlivekit/*",
+    "*/__pycache__/*",
+    "*/site-packages/*"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstract"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --timeout=10"
+norecursedirs = ["whisperlivekit", ".git", ".tox", "dist", "build", "*.egg", "venv"]
+timeout = 10
+timeout_method = "thread"
+markers = [
+    "unit: marks tests as unit tests (deselect with '-m \"not unit\"')",
+    "integration: marks tests as integration tests (deselect with '-m \"not integration\"')", 
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')"
+]

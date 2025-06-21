@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv
+.coverage
+.coverage.*
+.pytest_cache/
+htmlcov/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude-specific
+.claude/
+.roomodes
+memory/
+claude-flow
+dummy_path
+
+# Project specific
+*.log
+*.sqlite
+*.db
+.whisper-transcriber/
+docs/
+
+# MLX model cache
+mlx_models/
+*.mlx
+
+# Temporary files
+test_*.py
+debug_*.py
