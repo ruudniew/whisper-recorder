@@ -157,7 +157,8 @@ class WhisperTranscriberApp(rumps.App):
             # Stop components
             self.audio_capture.stop_recording()
             self.transcription_service.disconnect_websocket()
-            self.transcription_service.stop_server()
+            # Don't stop the server - keep it running for faster next recording
+            # self.transcription_service.stop_server()
 
             # Reset transcription tracking
             if hasattr(self, "_inserted_text"):
