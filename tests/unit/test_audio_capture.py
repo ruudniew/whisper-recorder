@@ -108,7 +108,7 @@ class TestAudioCapture:
             device=None,
             channels=1,
             samplerate=16000,
-            blocksize=512,
+            blocksize=1600,
             dtype='int16',
             callback=audio_capture._audio_callback
         )
@@ -127,7 +127,7 @@ class TestAudioCapture:
             device=1,
             channels=1,
             samplerate=16000,
-            blocksize=512,
+            blocksize=1600,
             dtype='int16',
             callback=capture._audio_callback
         )
@@ -264,7 +264,7 @@ class TestAudioCapture:
         assert isinstance(config, AudioConfig)
         assert config.sample_rate == 16000
         assert config.channels == 1
-        assert config.chunk_size == 512
+        assert config.chunk_size == 1600
         assert config.format == "int16"
     
     def test_concurrent_start_stop(self, audio_capture, mock_sounddevice):

@@ -12,7 +12,7 @@ class TestAudioConfig:
         config = AudioConfig()
         assert config.sample_rate == 16000
         assert config.channels == 1
-        assert config.chunk_size == 512
+        assert config.chunk_size == 1600
         assert config.format == "int16"
     
     def test_custom_values(self):
@@ -36,7 +36,7 @@ class TestAudioConfig:
         assert config_dict == {
             "sample_rate": 16000,
             "channels": 1,
-            "chunk_size": 512,
+            "chunk_size": 1600,
             "format": "int16"
         }
     
@@ -57,7 +57,7 @@ class TestServerConfig:
         assert config.port == 9090
         assert config.model == "tiny.en"
         assert config.language == "en"
-        assert config.vad_enabled is True
+        assert config.vad_enabled is False
         assert config.use_gpu is True
     
     def test_custom_values(self):
@@ -87,7 +87,7 @@ class TestServerConfig:
             "port": 9090,
             "model": "tiny.en",
             "language": "en",
-            "vad_enabled": True,
+            "vad_enabled": False,
             "use_gpu": True,
         }
     

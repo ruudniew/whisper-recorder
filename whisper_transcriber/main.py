@@ -67,8 +67,8 @@ class WhisperTranscriberApp(rumps.App):
             port=9090,
             model=self.config_manager.get("model", "tiny.en"),
             language=self.config_manager.get("language", "en"),
-            vad_enabled=True,
-            use_gpu=False,
+            vad_enabled=self.config_manager.get("vad_enabled", False),
+            use_gpu=self.config_manager.get("use_gpu", False),
         )
         self.transcription_service = TranscriptionService(server_config)
         self.transcription_service.transcription_callback = self._handle_transcription

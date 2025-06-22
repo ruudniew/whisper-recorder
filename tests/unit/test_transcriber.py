@@ -22,7 +22,7 @@ class TestTranscriptionService:
             port=9090,
             model="tiny.en",
             language="en",
-            vad_enabled=True,
+            vad_enabled=False,
             use_gpu=False
         )
     
@@ -64,7 +64,8 @@ class TestTranscriptionService:
             '--port', '9090',
             '--model', 'tiny.en',
             '--lan', 'en',  # Note: changed from --language to --lan
-            '--raw-pcm'
+            '--no-vad',  # VAD is disabled by default now
+            '--raw-pcm'  # Enable raw PCM mode
         ]
         mock_popen.assert_called_once()
         actual_cmd = mock_popen.call_args[0][0]

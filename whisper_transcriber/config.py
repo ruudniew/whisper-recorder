@@ -15,6 +15,8 @@ class ConfigManager:
         "model": "tiny.en",
         "language": "en",
         "start_at_login": False,
+        "vad_enabled": False,
+        "use_gpu": False,
     }
 
     def __init__(self, config_path: str = "~/.whisper-transcriber/config.json"):
@@ -117,6 +119,8 @@ class ConfigManager:
             "model": str,
             "language": str,
             "start_at_login": bool,
+            "vad_enabled": bool,
+            "use_gpu": bool,
         }
 
         for key, expected_type in type_checks.items():

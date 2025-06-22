@@ -76,6 +76,7 @@ if [ ! -d "venv" ]; then
 fi
 
 echo "🎙️  Starting WhisperLive Transcription..."
+echo "   Using optimized settings for better performance"
 
 # Kill any existing WhisperLiveKit servers
 echo "Checking for existing WhisperLiveKit servers..."

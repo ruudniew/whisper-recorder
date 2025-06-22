@@ -9,7 +9,7 @@ class AudioConfig:
 
     sample_rate: int = 16000  # WhisperLiveKit default
     channels: int = 1  # Mono
-    chunk_size: int = 512  # Smaller chunks for lower latency (32ms)
+    chunk_size: int = 1600  # 100ms chunks for better performance
     format: str = "int16"  # 16-bit PCM
 
 
@@ -21,7 +21,7 @@ class ServerConfig:
     port: int = 9090
     model: str = "tiny.en"  # Start with tiny for low latency
     language: str = "en"
-    vad_enabled: bool = True
+    vad_enabled: bool = False  # Disabled by default for better performance
     use_gpu: bool = True
 
     @property

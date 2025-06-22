@@ -125,7 +125,7 @@ class TestConfigManager:
         manager = ConfigManager(config_path="dummy_path")
         required_keys = [
             "hotkey", "audio_device", "audio_device_id", "insertion_method",
-            "model", "language", "start_at_login"
+            "model", "language", "start_at_login", "vad_enabled", "use_gpu"
         ]
         for key in required_keys:
             assert key in manager.DEFAULT_CONFIG
@@ -140,6 +140,8 @@ class TestConfigManager:
         assert manager.DEFAULT_CONFIG["model"] == "tiny.en"
         assert manager.DEFAULT_CONFIG["language"] == "en"
         assert manager.DEFAULT_CONFIG["start_at_login"] is False
+        assert manager.DEFAULT_CONFIG["vad_enabled"] is False
+        assert manager.DEFAULT_CONFIG["use_gpu"] is False
 
     def test_handles_corrupted_config_file(self):
         """Test graceful handling of corrupted config file"""
